@@ -1,0 +1,837 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F5F9">
+
+    <!-- TOP APPLICATION HEADER -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/applicationHeader"
+        android:layout_width="0dp"
+        android:layout_height="135dp"
+        android:background="#142746"
+        android:padding="18dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/txtAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KasiConnect"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/txtApplicationHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Applications"
+            android:textColor="#F5B942"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            app:layout_constraintTop_toBottomOf="@id/txtAppName"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/txtApplicationSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Submit and track your applications"
+            android:textColor="#DCE6F5"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/txtApplicationHeading"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btnNotifications"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:src="@android:drawable/ic_popup_reminder"
+            android:background="@android:color/transparent"
+            android:contentDescription="Notifications"
+            app:tint="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- MAIN SCROLL AREA -->
+    <ScrollView
+        android:id="@+id/applicationScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        app:layout_constraintTop_toBottomOf="@id/applicationHeader"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/applicationContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+
+            <!-- WELCOME MESSAGE -->
+            <TextView
+                android:id="@+id/txtWelcome"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Manage your career opportunities"
+                android:textColor="#142746"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <!-- APPLICATION SUMMARY -->
+            <TextView
+                android:id="@+id/txtSummaryHeading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Application Overview"
+                android:textColor="#687386"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginTop="15dp"
+                app:layout_constraintTop_toBottomOf="@id/txtWelcome"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <!-- TOTAL APPLICATIONS -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardTotal"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:layout_constraintTop_toBottomOf="@id/txtSummaryHeading"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/cardPending"
+                app:layout_constraintHorizontal_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="TOTAL"
+                        android:textColor="#687386"
+                        android:textSize="11sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/txtTotalApplications"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#142746"
+                        android:textSize="27sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- PENDING APPLICATIONS -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPending"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFF4D9"
+                app:layout_constraintTop_toTopOf="@id/cardTotal"
+                app:layout_constraintBottom_toBottomOf="@id/cardTotal"
+                app:layout_constraintStart_toEndOf="@id/cardTotal"
+                app:layout_constraintEnd_toStartOf="@id/cardApproved"
+                app:layout_constraintHorizontal_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PENDING"
+                        android:textColor="#946200"
+                        android:textSize="11sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/txtPendingApplications"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#946200"
+                        android:textSize="27sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- APPROVED APPLICATIONS -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardApproved"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                app:cardCornerRadius="13dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#E3F5EA"
+                app:layout_constraintTop_toTopOf="@id/cardTotal"
+                app:layout_constraintBottom_toBottomOf="@id/cardTotal"
+                app:layout_constraintStart_toEndOf="@id/cardPending"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_weight="1">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="APPROVED"
+                        android:textColor="#16834A"
+                        android:textSize="10sp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/txtApprovedApplications"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#16834A"
+                        android:textSize="27sp"
+                        android:textStyle="bold"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- REJECTED SUMMARY -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardRejected"
+                android:layout_width="0dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="#FCE8E6"
+                app:layout_constraintTop_toBottomOf="@id/cardTotal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="14dp">
+
+                    <TextView
+                        android:id="@+id/txtRejectedLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rejected Applications"
+                        android:textColor="#B3261E"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtRejectedApplications"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="#B3261E"
+                        android:textSize="21sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- SUBMIT NEW APPLICATION -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSubmitApplication"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:layout_constraintTop_toBottomOf="@id/cardRejected"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="17dp">
+
+                    <TextView
+                        android:id="@+id/txtSubmitTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Submit a New Application"
+                        android:textColor="#142746"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtSubmitDescription"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Apply for available jobs and opportunities in your community."
+                        android:textColor="#687386"
+                        android:textSize="13sp"
+                        android:layout_marginTop="7dp"
+                        app:layout_constraintTop_toBottomOf="@id/txtSubmitTitle"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <Button
+                        android:id="@+id/btnFindOpportunities"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:text="FIND OPPORTUNITIES"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:backgroundTint="#142746"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintTop_toBottomOf="@id/txtSubmitDescription"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <Button
+                        android:id="@+id/btnSubmitApplication"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:text="SUBMIT APPLICATION"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:backgroundTint="#F5B942"
+                        android:layout_marginTop="9dp"
+                        app:layout_constraintTop_toBottomOf="@id/btnFindOpportunities"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- NEW APPLICATION FORM TITLE -->
+            <TextView
+                android:id="@+id/txtNewApplicationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Application Form"
+                android:textColor="#142746"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:layout_marginTop="22dp"
+                app:layout_constraintTop_toBottomOf="@id/cardSubmitApplication"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <!-- APPLICATION FORM CARD -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/applicationFormCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:layout_constraintTop_toBottomOf="@id/txtNewApplicationTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="17dp">
+
+                    <!-- APPLICANT NAME -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Applicant Full Name"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:textSize="13sp"/>
+
+                    <EditText
+                        android:id="@+id/edtApplicantName"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:hint="Enter your full name"
+                        android:inputType="textPersonName"
+                        android:singleLine="true"/>
+
+                    <!-- EMAIL -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Email Address"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:layout_marginTop="12dp"/>
+
+                    <EditText
+                        android:id="@+id/edtApplicantEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:hint="Enter your email address"
+                        android:inputType="textEmailAddress"
+                        android:singleLine="true"/>
+
+                    <!-- PHONE -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Phone Number"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:layout_marginTop="12dp"/>
+
+                    <EditText
+                        android:id="@+id/edtApplicantPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:hint="Enter your phone number"
+                        android:inputType="phone"
+                        android:singleLine="true"/>
+
+                    <!-- JOB TITLE -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Select Job Opportunity"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:layout_marginTop="12dp"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerJobOpportunity"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:entries="@array/job_opportunities"/>
+
+                    <!-- COMPANY NAME -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Company / Business Name"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:layout_marginTop="12dp"/>
+
+                    <EditText
+                        android:id="@+id/edtCompanyName"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:hint="Enter company name"
+                        android:inputType="textCapWords"/>
+
+                    <!-- LOCATION -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Opportunity Location"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:layout_marginTop="12dp"/>
+
+                    <EditText
+                        android:id="@+id/edtOpportunityLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="52dp"
+                        android:hint="Enter location"
+                        android:inputType="textCapWords"/>
+
+                    <!-- COVER LETTER -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cover Letter / Motivation"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:layout_marginTop="12dp"/>
+
+                    <EditText
+                        android:id="@+id/edtCoverLetter"
+                        android:layout_width="match_parent"
+                        android:layout_height="130dp"
+                        android:hint="Explain why you are applying for this opportunity..."
+                        android:gravity="top|start"
+                        android:inputType="textMultiLine"
+                        android:padding="12dp"/>
+
+                    <!-- CV FILE NAME -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Attach CV / Supporting Document"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:textSize="13sp"
+                        android:layout_marginTop="12dp"/>
+
+                    <TextView
+                        android:id="@+id/txtSelectedCV"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="No document selected"
+                        android:textColor="#687386"
+                        android:textSize="13sp"
+                        android:padding="10dp"/>
+
+                    <Button
+                        android:id="@+id/btnUploadCV"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:text="CHOOSE CV DOCUMENT"
+                        android:textColor="#142746"
+                        android:backgroundTint="#E0E8F2"/>
+
+                    <!-- SUBMIT -->
+                    <Button
+                        android:id="@+id/btnSendApplication"
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:text="SUBMIT APPLICATION"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:backgroundTint="#142746"
+                        android:layout_marginTop="20dp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- TRACKING SECTION -->
+            <TextView
+                android:id="@+id/txtTrackingTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Track My Applications"
+                android:textColor="#142746"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                app:layout_constraintTop_toBottomOf="@id/applicationFormCard"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <!-- SEARCH APPLICATIONS -->
+            <EditText
+                android:id="@+id/edtSearchApplication"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:hint="Search by job or reference number"
+                android:singleLine="true"
+                android:inputType="text"
+                android:paddingStart="12dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/txtTrackingTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnSearchApplication"/>
+
+            <Button
+                android:id="@+id/btnSearchApplication"
+                android:layout_width="95dp"
+                android:layout_height="50dp"
+                android:text="SEARCH"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#245A87"
+                android:layout_marginStart="7dp"
+                app:layout_constraintTop_toTopOf="@id/edtSearchApplication"
+                app:layout_constraintBottom_toBottomOf="@id/edtSearchApplication"
+                app:layout_constraintStart_toEndOf="@id/edtSearchApplication"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <!-- APPLICATION STATUS FILTER -->
+            <TextView
+                android:id="@+id/txtFilterLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Filter applications by status"
+                android:textColor="#142746"
+                android:textStyle="bold"
+                android:textSize="13sp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintTop_toBottomOf="@id/edtSearchApplication"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <Spinner
+                android:id="@+id/spinnerApplicationStatus"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:entries="@array/application_status_filter"
+                android:layout_marginTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/txtFilterLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <!-- APPLICATIONS LIST HEADER -->
+            <TextView
+                android:id="@+id/txtSubmittedTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submitted Applications"
+                android:textColor="#142746"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/spinnerApplicationStatus"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <TextView
+                android:id="@+id/txtApplicationCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 applications"
+                android:textColor="#687386"
+                android:textSize="12sp"
+                app:layout_constraintTop_toTopOf="@id/txtSubmittedTitle"
+                app:layout_constraintBottom_toBottomOf="@id/txtSubmittedTitle"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <!-- APPLICATION RECORDS -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerApplications"
+                android:layout_width="0dp"
+                android:layout_height="350dp"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/txtSubmittedTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <!-- REFRESH APPLICATIONS -->
+            <Button
+                android:id="@+id/btnRefreshApplications"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="REFRESH APPLICATIONS"
+                android:textColor="#142746"
+                android:backgroundTint="#E0E8F2"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@id/recyclerApplications"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+
+            <!-- APPLICATION HELP -->
+            <TextView
+                android:id="@+id/txtApplicationHelp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Need assistance? Contact the opportunity provider for more information about your application."
+                android:textColor="#687386"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:padding="15dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/btnRefreshApplications"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+    <!-- LOADING INDICATOR -->
+    <ProgressBar
+        android:id="@+id/progressApplications"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <!-- EMPTY APPLICATIONS MESSAGE -->
+    <LinearLayout
+        android:id="@+id/layoutNoApplications"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="20dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@android:drawable/ic_menu_agenda"
+            android:contentDescription="No applications"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No applications yet"
+            android:textColor="#142746"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find an opportunity and submit your first application."
+            android:textColor="#687386"
+            android:textSize="13sp"
+            android:gravity="center"
+            android:layout_marginTop="8dp"/>
+
+    </LinearLayout>
+
+
+    <!-- ERROR MESSAGE -->
+    <TextView
+        android:id="@+id/txtApplicationError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Unable to load applications. Please try again."
+        android:textColor="#B3261E"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:padding="15dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <!-- BOTTOM NAVIGATION -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#142746"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/navBusiness"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Business"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/navJobs"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Jobs"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/navMarket"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Market"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Profile"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

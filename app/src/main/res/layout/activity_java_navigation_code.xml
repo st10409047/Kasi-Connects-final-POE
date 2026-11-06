@@ -1,0 +1,617 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F5F9">
+
+    <!-- TOP HEADER -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profileHeader"
+        android:layout_width="0dp"
+        android:layout_height="170dp"
+        android:background="#142746"
+        android:padding="18dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/txtAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KasiConnect"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/txtHeaderSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Account"
+            android:textColor="#DCE6F5"
+            android:textSize="14sp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@id/txtAppName"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <ImageButton
+            android:id="@+id/btnNotifications"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@android:drawable/ic_popup_reminder"
+            android:backgroundTint="#245A87"
+            android:background="@android:color/transparent"
+            android:contentDescription="Notifications"
+            app:tint="#FFFFFF"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:id="@+id/txtHeaderWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage your personal information"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintTop_toBottomOf="@id/txtHeaderSubtitle"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- MAIN SCROLLABLE CONTENT -->
+    <ScrollView
+        android:id="@+id/profileScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        android:clipToPadding="false"
+        android:paddingBottom="15dp"
+        app:layout_constraintTop_toBottomOf="@id/profileHeader"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/profileContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- PROFILE CARD -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profileCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="18dp">
+
+                    <!-- PROFILE IMAGE -->
+                    <ImageView
+                        android:id="@+id/imgProfile"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:src="@android:drawable/ic_menu_myplaces"
+                        android:scaleType="centerCrop"
+                        android:background="#E6ECF4"
+                        android:contentDescription="User profile photo"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <!-- USER NAME -->
+                    <TextView
+                        android:id="@+id/txtUserName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Loading profile..."
+                        android:textColor="#142746"
+                        android:textSize="23sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintTop_toBottomOf="@id/imgProfile"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <!-- EMAIL -->
+                    <TextView
+                        android:id="@+id/txtUserEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Loading email..."
+                        android:textColor="#687386"
+                        android:textSize="14sp"
+                        android:gravity="center"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintTop_toBottomOf="@id/txtUserName"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <!-- ACCOUNT STATUS -->
+                    <TextView
+                        android:id="@+id/txtAccountStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Account Active"
+                        android:textColor="#16834A"
+                        android:textStyle="bold"
+                        android:textSize="12sp"
+                        android:background="#E3F5EA"
+                        android:padding="9dp"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintTop_toBottomOf="@id/txtUserEmail"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <!-- EDIT PROFILE -->
+                    <Button
+                        android:id="@+id/btnEditProfile"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:text="EDIT PROFILE"
+                        android:textColor="#FFFFFF"
+                        android:textStyle="bold"
+                        android:backgroundTint="#142746"
+                        android:layout_marginTop="18dp"
+                        app:layout_constraintTop_toBottomOf="@id/txtAccountStatus"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- PERSONAL INFORMATION TITLE -->
+            <TextView
+                android:id="@+id/txtPersonalInfoTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Personal Information"
+                android:textColor="#142746"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:layout_marginTop="22dp"
+                app:layout_constraintTop_toBottomOf="@id/profileCard"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <!-- PERSONAL INFORMATION CARD -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/personalInfoCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:layout_constraintTop_toBottomOf="@id/txtPersonalInfoTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="17dp">
+
+                    <!-- FULL NAME -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Full Name"
+                        android:textColor="#778397"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/txtFullName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textColor="#142746"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="12dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E7EAF0"/>
+
+                    <!-- EMAIL ADDRESS -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Email Address"
+                        android:textColor="#778397"
+                        android:textSize="12sp"
+                        android:paddingTop="12dp"/>
+
+                    <TextView
+                        android:id="@+id/txtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textColor="#142746"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="12dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E7EAF0"/>
+
+                    <!-- PHONE NUMBER -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Phone Number"
+                        android:textColor="#778397"
+                        android:textSize="12sp"
+                        android:paddingTop="12dp"/>
+
+                    <TextView
+                        android:id="@+id/txtPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textColor="#142746"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="12dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E7EAF0"/>
+
+                    <!-- LOCATION -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Community / Location"
+                        android:textColor="#778397"
+                        android:textSize="12sp"
+                        android:paddingTop="12dp"/>
+
+                    <TextView
+                        android:id="@+id/txtLocation"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textColor="#142746"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="12dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E7EAF0"/>
+
+                    <!-- ACCOUNT TYPE -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Account Type"
+                        android:textColor="#778397"
+                        android:textSize="12sp"
+                        android:paddingTop="12dp"/>
+
+                    <TextView
+                        android:id="@+id/txtAccountType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textColor="#142746"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="12dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E7EAF0"/>
+
+                    <!-- REGISTRATION DATE -->
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Member Since"
+                        android:textColor="#778397"
+                        android:textSize="12sp"
+                        android:paddingTop="12dp"/>
+
+                    <TextView
+                        android:id="@+id/txtMemberSince"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textColor="#142746"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:paddingTop="5dp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- ACCOUNT INFORMATION TITLE -->
+            <TextView
+                android:id="@+id/txtAccountInfoTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Information"
+                android:textColor="#142746"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:layout_marginTop="22dp"
+                app:layout_constraintTop_toBottomOf="@id/personalInfoCard"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <!-- ACCOUNT INFORMATION CARD -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/accountInfoCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:layout_constraintTop_toBottomOf="@id/txtAccountInfoTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="17dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="User ID"
+                        android:textColor="#778397"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:id="@+id/txtUserId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Loading..."
+                        android:textColor="#142746"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="12dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E7EAF0"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Profile Completion"
+                        android:textColor="#778397"
+                        android:textSize="12sp"
+                        android:paddingTop="12dp"/>
+
+                    <ProgressBar
+                        android:id="@+id/profileProgress"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="10dp"
+                        android:max="100"
+                        android:progress="0"
+                        android:progressTint="#16834A"
+                        android:layout_marginTop="10dp"/>
+
+                    <TextView
+                        android:id="@+id/txtProfileProgress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="0% completed"
+                        android:textColor="#142746"
+                        android:textSize="13sp"
+                        android:paddingTop="7dp"/>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- QUICK ACTIONS TITLE -->
+            <TextView
+                android:id="@+id/txtQuickActions"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Quick Actions"
+                android:textColor="#142746"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                android:layout_marginTop="22dp"
+                app:layout_constraintTop_toBottomOf="@id/accountInfoCard"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <!-- APPLICATIONS BUTTON -->
+            <Button
+                android:id="@+id/btnMyApplications"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:text="MY APPLICATIONS"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#245A87"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/txtQuickActions"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- SETTINGS BUTTON -->
+            <Button
+                android:id="@+id/btnSettings"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:text="SETTINGS"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#142746"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/btnMyApplications"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- REFRESH BUTTON -->
+            <Button
+                android:id="@+id/btnRefreshProfile"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="REFRESH PROFILE"
+                android:textColor="#142746"
+                android:backgroundTint="#E0E8F2"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/btnSettings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- LOGOUT BUTTON -->
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:text="LOG OUT"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#B3261E"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="15dp"
+                app:layout_constraintTop_toBottomOf="@id/btnRefreshProfile"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+    <!-- LOADING INDICATOR -->
+    <ProgressBar
+        android:id="@+id/loadingProfile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <!-- ERROR MESSAGE -->
+    <TextView
+        android:id="@+id/txtProfileError"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Unable to load profile. Please try again."
+        android:textColor="#B3261E"
+        android:textSize="14sp"
+        android:gravity="center"
+        android:padding="15dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <!-- BOTTOM NAVIGATION -->
+    <LinearLayout
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#142746"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/navHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/navBusiness"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Business"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/navJobs"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Jobs"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/navMarket"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Market"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/navProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Profile"
+            android:textColor="#F5B942"
+            android:textStyle="bold"
+            android:textSize="11sp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

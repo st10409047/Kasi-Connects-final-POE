@@ -1,0 +1,510 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F3F5F9">
+
+    <!-- HEADER -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/settingsHeader"
+        android:layout_width="0dp"
+        android:layout_height="115dp"
+        android:background="#142746"
+        android:padding="18dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/txtSettingsAppName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="KasiConnect"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:id="@+id/txtSettingsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textColor="#F5B942"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            android:layout_marginTop="7dp"
+            app:layout_constraintTop_toBottomOf="@id/txtSettingsAppName"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage your account and preferences"
+            android:textColor="#DCE6F5"
+            android:textSize="12sp"
+            android:layout_marginTop="4dp"
+            app:layout_constraintTop_toBottomOf="@id/txtSettingsTitle"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!-- SETTINGS CONTENT -->
+    <ScrollView
+        android:id="@+id/settingsScrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/settingsHeader"
+        app:layout_constraintBottom_toTopOf="@id/settingsBottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/settingsContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+
+            <!-- ACCOUNT SETTINGS TITLE -->
+            <TextView
+                android:id="@+id/txtAccountSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account Information"
+                android:textColor="#142746"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <!-- ACCOUNT CARD -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardAccountSettings"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:layout_constraintTop_toBottomOf="@id/txtAccountSettings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:id="@+id/txtNameLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Full Name"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <EditText
+                        android:id="@+id/edtSettingsFullName"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:hint="Enter full name"
+                        android:inputType="textPersonName"
+                        app:layout_constraintTop_toBottomOf="@id/txtNameLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtEmailLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Email Address"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@id/edtSettingsFullName"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <EditText
+                        android:id="@+id/edtSettingsEmail"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:hint="Enter email address"
+                        android:inputType="textEmailAddress"
+                        app:layout_constraintTop_toBottomOf="@id/txtEmailLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtPhoneLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phone Number"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintTop_toBottomOf="@id/edtSettingsEmail"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <EditText
+                        android:id="@+id/edtSettingsPhone"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:hint="Enter phone number"
+                        android:inputType="phone"
+                        app:layout_constraintTop_toBottomOf="@id/txtPhoneLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- NOTIFICATIONS TITLE -->
+            <TextView
+                android:id="@+id/txtNotificationSettings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Notification Settings"
+                android:textColor="#142746"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/cardAccountSettings"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <!-- NOTIFICATIONS CARD -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardNotifications"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:layout_constraintTop_toBottomOf="@id/txtNotificationSettings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp">
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchNotifications"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:text="Enable notifications"
+                        android:textColor="#142746"
+                        android:checked="true"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchApplicationUpdates"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:text="Application status updates"
+                        android:textColor="#142746"
+                        android:checked="true"
+                        app:layout_constraintTop_toBottomOf="@id/switchNotifications"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchJobAlerts"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:text="New job alerts"
+                        android:textColor="#142746"
+                        android:checked="true"
+                        app:layout_constraintTop_toBottomOf="@id/switchApplicationUpdates"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchPromotions"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:text="News and announcements"
+                        android:textColor="#142746"
+                        android:checked="false"
+                        app:layout_constraintTop_toBottomOf="@id/switchJobAlerts"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- PREFERENCES TITLE -->
+            <TextView
+                android:id="@+id/txtPreferencesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Application Preferences"
+                android:textColor="#142746"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/cardNotifications"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <!-- PREFERENCES CARD -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardPreferences"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:layout_constraintTop_toBottomOf="@id/txtPreferencesTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="15dp">
+
+                    <TextView
+                        android:id="@+id/txtLanguageLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Language"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerLanguage"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:entries="@array/settings_languages"
+                        app:layout_constraintTop_toBottomOf="@id/txtLanguageLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/txtThemeLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Theme"
+                        android:textColor="#142746"
+                        android:textStyle="bold"
+                        android:layout_marginTop="12dp"
+                        app:layout_constraintTop_toBottomOf="@id/spinnerLanguage"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                    <Spinner
+                        android:id="@+id/spinnerTheme"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:entries="@array/settings_themes"
+                        app:layout_constraintTop_toBottomOf="@id/txtThemeLabel"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        android:id="@+id/switchSaveLogin"
+                        android:layout_width="0dp"
+                        android:layout_height="55dp"
+                        android:text="Remember my login"
+                        android:textColor="#142746"
+                        android:checked="true"
+                        android:layout_marginTop="5dp"
+                        app:layout_constraintTop_toBottomOf="@id/spinnerTheme"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- SECURITY TITLE -->
+            <TextView
+                android:id="@+id/txtSecurityTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Privacy and Security"
+                android:textColor="#142746"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/cardPreferences"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+
+            <!-- SECURITY CARD -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardSecurity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="3dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:layout_constraintTop_toBottomOf="@id/txtSecurityTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp">
+
+                    <Button
+                        android:id="@+id/btnChangePassword"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:text="CHANGE PASSWORD"
+                        android:textColor="#FFFFFF"
+                        android:backgroundTint="#245A87"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                    <Button
+                        android:id="@+id/btnPrivacyPolicy"
+                        android:layout_width="0dp"
+                        android:layout_height="50dp"
+                        android:text="PRIVACY POLICY"
+                        android:textColor="#142746"
+                        android:backgroundTint="#E0E8F2"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintTop_toBottomOf="@id/btnChangePassword"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <!-- SAVE BUTTON -->
+            <Button
+                android:id="@+id/btnSaveSettings"
+                android:layout_width="0dp"
+                android:layout_height="55dp"
+                android:text="SAVE SETTINGS"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:backgroundTint="#142746"
+                android:layout_marginTop="20dp"
+                app:layout_constraintTop_toBottomOf="@id/cardSecurity"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- SAVE MESSAGE -->
+            <TextView
+                android:id="@+id/txtSettingsSaved"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Settings saved successfully!"
+                android:textColor="#16834A"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:visibility="gone"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/btnSaveSettings"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- LOGOUT BUTTON -->
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:text="LOG OUT"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:backgroundTint="#B3261E"
+                android:layout_marginTop="12dp"
+                app:layout_constraintTop_toBottomOf="@id/txtSettingsSaved"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+    <!-- BOTTOM NAVIGATION -->
+    <LinearLayout
+        android:id="@+id/settingsBottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:background="#142746"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:id="@+id/navSettingsHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Home"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/navSettingsJobs"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Jobs"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/navSettingsApplications"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Applications"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+        <TextView
+            android:id="@+id/navSettingsProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Profile"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
